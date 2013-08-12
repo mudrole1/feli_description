@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <name>feli_description</name>
+  <version>0.0.1</version>
+  <description>The description package contains description of FELaaCZech</description>
+
+  <maintainer email="lenka.mudrova@gmail.com">lenka</maintainer>
+  <license>BSD</license>
+
+  <!-- <url type="website">http://ros.org/wiki/description</url> -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
