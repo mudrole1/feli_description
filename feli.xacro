@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<robot name="Feli" 
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" 
+       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider" 
+       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- materials -->
+  <material name="Red">
+    <color rgba="0.8 0.0 0.0 1.0"/>
+  </material>
+  <material name="Black">
+    <color rgba="0.02 0.02 0.02 1.0"/>
+  </material>
+  <material name="Aluminium">
+    <color rgba="0.65 0.65 0.65 1.0"/>
+  </material>
+  <material name="white">
+	<color rgba="1 1 1 1" />
+  </material>
+  <material name="black">
+	<color rgba="0 0 0 1" />
+  </material>
+  <material name="red">
+	<color rgba="1 0 0 1" />
+  </material>
+  <material name="green">
+	<color rgba="0 1 0 1" />
+  </material>
+  <material name="blue">
+	<color rgba="0 0 1 1" />
+  </material>
+  <material name="yellow">
+	<color rgba="1 1 0 1" />
+  </material>
+  <material name="darkgray">
+	<color rgba="0.3 0.3 0.3 1" />
+  </material>
+  <material name="gray">
+	<color rgba="0.7 0.7 0.7 1" />
+  </material>
+  <material name="glass">
+	<color rgba="1 1 1 0.2" />
+  </material>
+
+  <!-- base_footprint : a fictional link that is on the floor plane, needed for move_base -->
+  <link name="base_footprint">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0 0 0"/> 
+      </geometry>
+      <material name="Red"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0 0 0"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Base link is the actual robot body -->
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+		<mesh filename="package://description/meshes/feli_1.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.175"/>
+      <geometry>
+        <cylinder length="0.35" radius="0.16"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <!-- Base footprint -> base_link -->
+  <joint name="base_footprint_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.021"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+</robot>
+
